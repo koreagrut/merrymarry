@@ -1,21 +1,48 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>카톡 공유</title>
-<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<title>카카오톡 버튼있는 메시지 전송하기</title>
+<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-    <input type="button" onClick="sendLinkCustom();" value="Custom"/>
-    <input type="button" onClick="sendLinkDefault();" value="Default"/>
-
+<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
+<a id="kakao-link-btn" href="javascript:sendLink()">
+  <img
+    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+  />
+</a>
 <script type="text/javascript">
-    function sendLinkCustom() {
-        Kakao.init("e25512f3b935e496c56129b2e8da5641");
-        Kakao.Link.sendCustom({
-            templateId: [82261]
-        });
-    }
+ Kakao.init('e25512f3b935e496c56129b2e8da5641');
+  function sendLink() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '청첩장',
+        description: '2022년 11월 19일',
+        imageUrl:
+          'https://cdn.imweb.me/thumbnail/20220901/2cf3d85e44bf2.jpg',
+        link: {
+          mobileWebUrl: '이상탁.com',
+          webUrl: '이상탁.com',
+        },
+      },
+      social: {
+        likeCount: 좋아요 수, //99999가 최대입니다
+        commentCount: 댓글 수, //99999가 최대입니다
+        sharedCount: 공유 수, //99999가 최대입니다
+      },
+      buttons: [
+        {
+          title: '청첩장 보기',
+          link: {
+            mobileWebUrl: '이상탁.com',
+            webUrl: '이상탁.com',
+          },
+        },
+      ],
+    })
+  }
 </script>
-
-</body>
+<!-- www.blackcats4567.com -->
+<!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
+  </body>
 </html>
