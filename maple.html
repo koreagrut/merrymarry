@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>청첩장 공유하기</title>
+<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+<p><strong>카카오톡 버튼을 클릭해 청첩장을 공유해보세요!</strong></p>
+<a id="kakao-link-btn" href="javascript:sendLink()">
+  <img
+    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+  />
+</a>
+<script type="text/javascript">
+ Kakao.init('08f85ab670a306d66043c6c01f332f1d');
+  function sendLink() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '메소와과 캐시를 보냈습니다.',
+        description: '',
+        imageUrl:
+          'https://cdn.imweb.me/thumbnail/20220901/9a48c47cbf7b7.png',
+        link: {
+          mobileWebUrl: 'http://maplestory.or.kr',
+          webUrl: 'http://maplestory.or.kr'',
+        },
+      },
+
+      buttons: [
+        {
+          title: '선물함으로 가기',
+          link: {
+            mobileWebUrl: 'http://maplestory.or.kr'',
+            webUrl: 'http://maplestory.or.kr'',
+          },
+        },
+      ],
+    })
+  }
+</script>
+<!-- www.blackcats4567.com -->
+<!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
+  </body>
+</html>
